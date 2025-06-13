@@ -206,6 +206,8 @@ class Reader(object):
             model_path = os.path.join(self.model_storage_directory, model_file)
             self.setLanguageList(lang_list, recog_config)
 
+        self.model = model
+
         dict_list = {}
         for lang in lang_list:
             dict_list[lang] = os.path.join(BASE_PATH, 'dict', lang + ".txt")
