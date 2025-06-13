@@ -8,7 +8,8 @@ class Model(nn.Module):
         """ FeatureExtraction """
         self.FeatureExtraction = ResNet_FeatureExtractor(input_channel, output_channel)
         self.FeatureExtraction_output = output_channel  # int(imgH/16-1) * 512
-        self.AdaptiveAvgPool = nn.AdaptiveAvgPool2d((None, 1))  # Transform final (imgH/16-1) -> 1
+        # Modified None to 256
+        self.AdaptiveAvgPool = nn.AdaptiveAvgPool2d((256, 1))  # Transform final (imgH/16-1) -> 1
 
         """ Sequence modeling"""
         self.SequenceModeling = nn.Sequential(
